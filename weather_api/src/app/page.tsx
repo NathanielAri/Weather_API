@@ -27,6 +27,7 @@ export default function Page(){
         setError(null)
 
         try {
+            //fetch geo location
             const apiKey = '7dd68e758436a503914212743304a446'
             const geoRes = await fetch(
                 `https://api.openweathermap.org/geo/1.0/direct?q=${encodeURIComponent(city)}&limit=1&appid=${apiKey}`
@@ -38,6 +39,7 @@ export default function Page(){
 
             const { lat, lon, name, country } = geoData[0]
 
+            //fetch weather data
             const weatherRes = await fetch(
                 `https://api.openweathermap.org/data/2.5/weather?lat=${lat}&lon=${lon}&appid=${apiKey}&units=metric`
             )
