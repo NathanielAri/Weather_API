@@ -16,6 +16,5 @@ This is a simple weather lookup app built using:
 ## How to Run Locally
 
 ```bash
-cd weather_api
 npm install
 npm run dev
