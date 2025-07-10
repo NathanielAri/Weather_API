@@ -50,9 +50,12 @@ export default function Page(){
             weatherData.country = country
 
             setWeather(weatherData)
-        } catch(err: any){
-            setError(err.message)
-            setWeather(null)
+        } catch(err: unknown){
+            if (err instanceof Error) {
+                setError(err.message)
+            } else {
+                setError('An unexpected error occurred')
+            }
         } finally {
             setLoading(false)
         }
