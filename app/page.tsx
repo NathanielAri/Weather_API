@@ -47,6 +47,7 @@ export default function Page(){
 
             const weatherData = await weatherRes.json()
 
+            //Checks if the weather data is fine
             if(!weatherRes.ok) throw new Error(weatherData.message)
 
             weatherData.locationName = name
