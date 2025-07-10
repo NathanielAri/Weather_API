@@ -2,6 +2,7 @@
 
 import { useState } from "react"
 
+//Creates custom type to be used for useState
 type WeatherData = {
     main: {
         temp: number
@@ -12,11 +13,13 @@ type WeatherData = {
 }
 
 export default function Page(){
+    //Initialize states
     const [city, setCity] = useState('')
     const [weather, setWeather] = useState<WeatherData | null>(null)
     const [loading, setLoading] = useState(false)
     const [error, setError] = useState<string | null>(null)
 
+    //Fetch weather using api, first geo location then weather api
     const fetchWeather = async () => {
         if(!city) return setError('Please enter a city name')
 
@@ -55,6 +58,7 @@ export default function Page(){
         }
     }
 
+    //Button, text input, onclick call fetchWeather
     return(
         <div>
             <input type="text" value={city} onChange={(e) => setCity(e.target.value)} placeholder="Enter city name"/>
