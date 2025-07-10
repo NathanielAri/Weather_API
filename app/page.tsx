@@ -35,6 +35,7 @@ export default function Page(){
 
             const geoData = await geoRes.json()
 
+            //Confirm geo location
             if(!geoRes.ok || !geoData.length) throw new Error('City not Found')
 
             const { lat, lon, name, country } = geoData[0]
