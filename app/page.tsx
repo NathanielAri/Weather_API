@@ -27,7 +27,7 @@ export default function Page(){
         setError(null)
 
         try {
-            //fetch geo location
+            //fetch geo location, gets the api key from .env
             const apiKey = process.env.NEXT_PUBLIC_API_KEY
             const geoRes = await fetch(
                 `https://api.openweathermap.org/geo/1.0/direct?q=${encodeURIComponent(city)}&limit=1&appid=${apiKey}`
