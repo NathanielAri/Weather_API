@@ -28,7 +28,7 @@ export default function Page(){
 
         try {
             //fetch geo location
-            const apiKey = '7dd68e758436a503914212743304a446'
+            const apiKey = process.env.NEXT_PUBLIC_API_KEY
             const geoRes = await fetch(
                 `https://api.openweathermap.org/geo/1.0/direct?q=${encodeURIComponent(city)}&limit=1&appid=${apiKey}`
             )
